@@ -284,6 +284,12 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
         return floatArray;
     }
 
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+      Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.BACK_GESTURE_ARROW, 1, UserHandle.USER_CURRENT);
+     }
+
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider(R.xml.gesture_navigation_settings) {
 
